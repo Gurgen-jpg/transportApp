@@ -1,0 +1,22 @@
+.wrapper {
+    display: flex;
+
+}
+.resizeableBox {
+    border: 2px solid red;
+    min-width: 300px;
+    min-height: 200px;
+    border-radius: 3px;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+
+
+
+}
+.resizer {
+    background-color: white;
+    cursor: col-resize;
+    min-width: 4px;
+}
+

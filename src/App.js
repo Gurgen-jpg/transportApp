@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import s from "./app.module.css";
+import "antd/dist/antd.css";
+import {ResizableReactEl} from "./components/resizable/ResizableReactEl";
+import MapComponent from "./components/MapComponent/MapComponent";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
-export default App;
+export const App = () => {
+    return (
+        <div className={s.App}>
+            <div>
+                <ResizableReactEl>
+                    <div style={{display: "flex", justifyContent: "space-between"}}>
+                        <div style={{backgroundColor: "#2b16f1", minWidth: "500px", height: "30px"}}>
+                        </div>
+                        <div style={{backgroundColor: "#ad1616", minWidth: "500px", height: "30px"}}>
+                        </div>
+                    </div>
+                </ResizableReactEl>
+            </div>
+            <MapComponent/>
+        </div>
+    );
+};
+

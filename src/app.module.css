@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+  border-radius: 5px;
+  width: 100vw;
+  height: 100vh;
+  background-color: teal;
+  position: relative;
+  display: flex;
+}
+
+
+
