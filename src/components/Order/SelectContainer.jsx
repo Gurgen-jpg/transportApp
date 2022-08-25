@@ -6,7 +6,7 @@ import {Select} from "antd";
 
 const {Option} = Select;
 const cityData = cities.data
-export const SelectContainer = ({point, setPoint, pointObj}) => {
+export const SelectContainer = ({point, setPoint, coordinates}) => {
     const handleSetPointChange = (value) => {
         setPoint(value)
     }
