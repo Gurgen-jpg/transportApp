@@ -1,4 +1,4 @@
-import {SET_END_POINT, SET_START_POINT} from "../actions/actions";
+import {DELETE_ORDER, SET_END_POINT, SET_START_POINT, SHOW_ROUTING, MAP_RESIZE} from "../actions/actions";
 import {uuid} from "../../utils/uuid";
 
 export const appInitState = {
@@ -154,7 +154,11 @@ export const appInitState = {
                 "Население": "33275"
             }
         }
-    ]
+    ],
+    map: {
+        center: { lat:55.7558, lon:37.6173 }
+    },
+    isResize: false
 }
 
 export const appReducer = (state = appInitState, action) => {
@@ -166,6 +170,16 @@ export const appReducer = (state = appInitState, action) => {
         case SET_END_POINT: {
             let {id, point} = action.payload
             return {...state, orders: state.orders.map(or => or.id === id ? {...or, endPoint: point} : {...or})}
+        }
+        case SHOW_ROUTING: {
+            let {id, show} = action.payload
+            return {...state, orders: state.orders.map(or => or.id === id ? {...or, showRout: show}: {...or})}
+        }
+        case DELETE_ORDER: {
+            return {...state, orders: state.orders.filter(or=> or.id !== action.id)}
+        }
+        case MAP_RESIZE: {
+            return {...state, isResize: action.isResize}
         }
         default: return {...state}
     }

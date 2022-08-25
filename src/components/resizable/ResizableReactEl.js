@@ -1,9 +1,11 @@
 import React, {useEffect, useRef} from 'react';
 import s from './resizable.module.css';
+import {useActions} from "../../hook/dispatcher";
 
 export const ResizableReactEl = ({children}) => {
     const refBox = useRef(null)
     const refRight = useRef(null)
+    const { mapResizeAC } = useActions()
     useEffect(() => {
         const resizeableElement = refBox.current
         const styles = window.getComputedStyle(resizeableElement)
@@ -19,6 +21,7 @@ export const ResizableReactEl = ({children}) => {
         }
         const onMouseUpRight = (event) => {
             document.removeEventListener("mousemove", onMouseMoveRight)
+            mapResizeAC(false)
         }
         const onMouseDownRight = (event) => {
             xCord = event.clientX;
@@ -26,6 +29,7 @@ export const ResizableReactEl = ({children}) => {
             resizeableElement.style.right = null;
             document.addEventListener("mousemove", onMouseMoveRight)
             document.addEventListener("mouseup", onMouseUpRight)
+            mapResizeAC(true)
         }
 
         const resizerRight = refRight.current;
