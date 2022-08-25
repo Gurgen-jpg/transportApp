@@ -34,3 +34,4 @@ export const mapResizeAC = (isResize) => ({
     type: MAP_RESIZE,
     isResize
 })
+

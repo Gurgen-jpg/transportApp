@@ -1,14 +1,17 @@
 import React from 'react';
 import {Checkbox} from "antd";
 
+
+
 export const CheckboxContainer = ({isChecked, setChecked}) => {
-    const onChangeHandler = (event) => {
-        setChecked(!event.target.checked)
+
+    const onChangeHandler = () => {
+        setChecked()
 
     }
     return (
         <Checkbox
-            value={isChecked}
+            checked={isChecked}
             onChange={onChangeHandler}
         >
         Показать

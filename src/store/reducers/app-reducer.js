@@ -1,4 +1,11 @@
-import {DELETE_ORDER, SET_END_POINT, SET_START_POINT, SHOW_ROUTING, MAP_RESIZE} from "../actions/actions";
+import {
+    DELETE_ORDER,
+    SET_END_POINT,
+    SET_START_POINT,
+    SHOW_ROUTING,
+    MAP_RESIZE,
+
+} from "../actions/actions";
 import {uuid} from "../../utils/uuid";
 
 export const appInitState = {
@@ -156,7 +163,13 @@ export const appInitState = {
         }
     ],
     map: {
-        center: { lat:55.7558, lon:37.6173 }
+        center: { lat:55.7558, lon:37.6173 },
+        chosenRout: {
+            routIsEnable: false,
+            center: {},
+            startPoint: {},
+            endPoint: {}
+        }
     },
     isResize: false
 }

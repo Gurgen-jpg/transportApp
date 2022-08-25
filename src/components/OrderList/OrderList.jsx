@@ -12,11 +12,12 @@ export const OrderList = () => {
             <h4>Список заказов</h4>
             <div className={s.orderContainer}>
                 {
-                    orders.map((order, id) => {
+                    orders.map(({id, endPoint, startPoint, showRout}) => {
                         return <Order key={id}
-                                      endObj={order.endPoint}
-                                      startObj={order.startPoint}
-                                      showRout={order.showRout}
+                                      id={id}
+                                      endObj={endPoint}
+                                      startObj={startPoint}
+                                      showRout={showRout}
                         />
                     })
                 }
