@@ -1,6 +1,7 @@
 import React from 'react';
 import cities from './../../data/cities.json';
 import {Select} from "antd";
+import s from './orderForm.module.css'
 
 
 
@@ -16,6 +17,7 @@ export const SelectContainer = ({point, setPoint, coordinates}) => {
             style={{
                 width: 220,
             }}
+            className={s.select}
             onChange={handleSetPointChange}
         >
             {cityData.map((city, id) => (

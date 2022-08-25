@@ -5,6 +5,7 @@ import s from './map.module.css'
 
 
 const MapComponent = () => {
+
     return (
         <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false} className={s.leafletContainer}>
             <TileLayer
@@ -12,9 +13,9 @@ const MapComponent = () => {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <Marker position={[51.505, -0.09]}>
-                <Popup>
-                    A pretty CSS3 popup. <br /> Easily customizable.
-                </Popup>
+                {/*<Popup>*/}
+                {/*    A pretty CSS3 popup. <br /> Easily customizable.*/}
+                {/*</Popup>*/}
             </Marker>
         </MapContainer>
 

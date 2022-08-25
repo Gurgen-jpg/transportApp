@@ -3,4 +3,23 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
+}
+
+.selectBlock:hover {
+    background-color: lightgray;
+}
+
+.selectIsChosen {
+    background-color: cornflowerblue;
+}
+
+.icon {
+    font-size: 24px;
+
+}
+
+.icon:hover {
+    background-color: red;
+
 }
