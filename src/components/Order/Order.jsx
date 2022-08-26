@@ -28,7 +28,6 @@ const Order = ({showRout, id, startObj, endObj}) => {
         deleteOrderAC(id)
     }
     const setStart = (point) => {
-        debugger
       setStartPointAC({id, point})
     }
     const setEnd = (point) => {

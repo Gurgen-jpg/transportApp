@@ -1,15 +1,20 @@
-import {takeEvery} from 'redux-saga/effects'
-import {SHOW_ROUTING} from "../actions/actions";
+import {all} from 'redux-saga/effects'
+
+import {startSaga} from "./startSaga";
+import {addSaga} from "./addSaga";
+import {deleteSaga} from "./deleteSaga";
+import {editSaga} from "./editSaga";
 
 
-export function* workerSaga() {
 
- yield
-}
-export function* watchSaga() {
-    yield takeEvery(SHOW_ROUTING, workerSaga)
-}
 
 export default function* rootSaga() {
-    yield watchSaga()
+    yield all([
+        startSaga(),
+        addSaga(),
+        deleteSaga(),
+        editSaga(),
+    ])
 }
+
+
