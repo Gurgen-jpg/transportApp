@@ -5,6 +5,7 @@ export const CREATE_NEW_ORDER = 'CREATE-NEW-ORDER';
 export const DELETE_ORDER = 'DELETE-ORDER';
 export const MAP_RESIZE = 'MAP-RESIZE';
 
+
 export const setStartPointAC = ({id, point}) => ({
     type: SET_START_POINT,
     payload: {
@@ -34,4 +35,7 @@ export const mapResizeAC = (isResize) => ({
     type: MAP_RESIZE,
     isResize
 })
-
+export const createNewOrderAC = (newOrder) => ({
+    type: CREATE_NEW_ORDER,
+    newOrder
+})

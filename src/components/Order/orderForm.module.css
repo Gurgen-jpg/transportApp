@@ -9,14 +9,20 @@
 .selectBlock:hover {
     background-color: lightgray;
 }
+.orderIsChecked {
+    background-color: #2b6fea;
+    border: 1px solid black;
 
+}
 .selectIsChosen {
     background-color: cornflowerblue;
 }
 
 .icon {
-    font-size: 24px;
-
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .icon:hover {

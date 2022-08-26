@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {
+    createNewOrderAC,
     deleteOrderAC, mapResizeAC,
     setEndPointAC, setShowRoutingAC,
     setStartPointAC
@@ -13,7 +14,8 @@ const allActions = {
     setEndPointAC,
     setShowRoutingAC,
     deleteOrderAC,
-    mapResizeAC
+    mapResizeAC,
+    createNewOrderAC
 };
 
 export const useActions = () => {

@@ -4,6 +4,7 @@ import {SelectContainer} from "./SelectContainer";
 import {CheckboxContainer} from "./CheckboxContainer";
 import {DeleteFilled}  from "@ant-design/icons";
 import {useActions} from "../../hook/dispatcher";
+import ButtonContainer from "../Button/ButtonContainer";
 
 
 
@@ -17,29 +18,42 @@ const Order = ({showRout, id, startObj, endObj}) => {
     const [check, setCheck] = useState(showRout)
 
 
-    const {setShowRoutingAC} = useActions()
+    const {setShowRoutingAC, deleteOrderAC, setStartPointAC, setEndPointAC } = useActions()
 
     const setShowRout = () => {
         setCheck(!check)
-        setShowRoutingAC({id, show: !check})  ///////
+        setShowRoutingAC({id, show: !check})
+    }
+    const deleteOrder = () => {
+        deleteOrderAC(id)
+    }
+    const setStart = (point) => {
+        debugger
+      setStartPointAC({id, point})
+    }
+    const setEnd = (point) => {
+        setEndPointAC({id, point})
     }
 
     return (
-        <div className={s.selectBlock}>
+        <div className={showRout? `${s.selectBlock} ${s.orderIsChecked}` : s.selectBlock}>
             <CheckboxContainer isChecked={check} setChecked={setShowRout}/>
             <SelectContainer
-                point={startCity}
-                setPoint={setStartCity}
+                city={startCity}
+                setCity={setStartCity}
+                setPoint={setStart}
             />
             <SelectContainer
-                point={endCity}
-                setPoint={setEndCity}
+                city={endCity}
+                setCity={setEndCity}
+                setPoint={setEnd}
             />
-            <div className={s.icon}>
+            <ButtonContainer onButtonClick={deleteOrder}
+                             buttonStyle={s.icon} >
                 <DeleteFilled/>
-            </div>
+            </ButtonContainer>
         </div>
     );
 };
 
-export default Order;
+export default React.memo(Order);

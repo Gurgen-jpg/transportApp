@@ -1,22 +1,17 @@
 import React from 'react';
-import { createControlComponent } from "@react-leaflet/core";
 import "leaflet-routing-machine";
-import "lrm-google";
-import L from "leaflet";
 
-const RoutingContainer = () => {
+import {createControlComponent} from "@react-leaflet/core";
+import {createRoutineMachineLayer} from "../../utils/createRoutineMachineLayer_util";
 
 
-    return (
-        <div>
+const RoutingContainer = ({order}) => {
+    let { startPoint, endPoint } = order
+    const Routing = createControlComponent(createRoutineMachineLayer(startPoint,endPoint));
 
-        </div>
-    );
+    return (<Routing/>);
+
+
 };
-
 export default RoutingContainer;
 
-// waypoints: [
-//     L.latLng(startPoint.lat, startPoint.lon),
-//     L.latLng(endPoint.lat, endPoint.lon)
-// ],

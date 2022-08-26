@@ -3,7 +3,7 @@ import {
     SET_END_POINT,
     SET_START_POINT,
     SHOW_ROUTING,
-    MAP_RESIZE,
+    MAP_RESIZE, CREATE_NEW_ORDER,
 
 } from "../actions/actions";
 import {uuid} from "../../utils/uuid";
@@ -164,18 +164,15 @@ export const appInitState = {
     ],
     map: {
         center: { lat:55.7558, lon:37.6173 },
-        chosenRout: {
-            routIsEnable: false,
-            center: {},
-            startPoint: {},
-            endPoint: {}
-        }
     },
     isResize: false
 }
 
 export const appReducer = (state = appInitState, action) => {
     switch (action.type) {
+        case CREATE_NEW_ORDER: {
+            return {...state, orders: [...state.orders, action.newOrder]}
+        }
         case SET_START_POINT: {
             let {id, point} = action.payload
             return {...state, orders: state.orders.map(or => or.id === id ? {...or, startPoint: point} : {...or})}
