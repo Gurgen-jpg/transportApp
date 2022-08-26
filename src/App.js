@@ -7,29 +7,30 @@ import {OrderList} from "./components/OrderList/OrderList";
 import {useSelector} from "react-redux";
 import Loading from "./components/Loading/Loading";
 import {useActions} from "./hook/dispatcher";
-
-
+import {AlertContainer} from "./components/Alert/AlertContainer";
 
 
 export const App = () => {
-    const { startAppAC } = useActions()
+    const {startAppAC} = useActions()
 
-    useEffect(()=>{
+    useEffect(() => {
         startAppAC()
-    },[])
+    }, [])
 
     const isInitialize = useSelector(store => store.app.isInitialize)
+    const error = useSelector(store => store.app.error)
     if (!isInitialize) {
         return <Loading/>
     }
     return (
-        <div className={s.App}>
-
+        <div className={s.wrapper}>
+            {error && <AlertContainer/>}
+            <div className={s.App}>
                 <ResizableReactEl>
-                            <OrderList/>
+                    <OrderList/>
                 </ResizableReactEl>
-
-            <MapComponent/>
+                <MapComponent/>
+            </div>
         </div>
     );
 };

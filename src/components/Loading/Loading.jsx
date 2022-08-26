@@ -3,7 +3,8 @@ import {Spin} from "antd";
 
 const Loading = () => {
     return (
-        <Spin size="large" />
+        <Spin size="large"
+              style={{display: "flex", justifyContent: "center", alignItems: "center", height: "100vh"}}/>
     );
 };
 
