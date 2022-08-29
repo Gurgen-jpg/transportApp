@@ -4,10 +4,7 @@ import createSagaMiddleware from 'redux-saga';
 import rootSaga from './sagas'
 
 //подключение redux devtools
-export const composeEnhancers = typeof window === 'object' &&
-window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
-    : compose;
+
 
 export const sagaMiddleware = createSagaMiddleware();
 
