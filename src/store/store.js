@@ -18,7 +18,7 @@ export const rootReducer = combineReducers({
 export const configureStore = preloadedState => createStore(
     rootReducer,
     preloadedState,
-    composeEnhancers(applyMiddleware(sagaMiddleware))
+    applyMiddleware(sagaMiddleware)
 );
 
 
