@@ -3,7 +3,7 @@ import {appReducer} from "./reducers/app-reducer";
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './sagas'
 
-//подключение redux devtools
+
 
 
 export const sagaMiddleware = createSagaMiddleware();
